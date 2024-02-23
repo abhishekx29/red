@@ -1,0 +1,194 @@
+:root{
+    --gradient: linear-gradient(to right,
+            #b8cbb8 0%, #b8cbb8 0%,
+            #b465da 0%, #cf6cc9 33%,
+            #ee609c 66%, #ee609c 100%);
+}
+
+*,*::after,*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "segoe ui";
+    font-size: 16px;
+    line-height: 1.7;
+    background: #24252a;
+}
+
+
+/* navbar styling */
+.navbar{
+    background: var(--gradient);
+}
+
+.navbar .container{
+    max-width: 1200px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+.navbar-collapse{
+    list-style: none;
+    display: flex;
+}
+
+.navbar-collapse a{
+    text-decoration: none;
+    color: #fff;
+    padding: 7px 12px;
+    font-size: 22px;    
+    font-weight: 600;
+    transition: all .3s ease;
+}
+
+.navbar-collapse a:hover{
+    color: #000000;
+}
+
+.navbar-toggler__icon{
+    padding: 2px;
+    border-radius: 3px;
+    border-right: 1px solid #5f3a63;
+    border-left: 1px solid #5f3a63;
+    transition: all .3s ease;
+    display: none;
+}
+
+.navbar-toggler__icon:hover,
+.navbar-toggler__icon.active{
+    background: #b04fdd;
+    cursor: pointer;
+}
+
+.navbar-toggler__icon:hover .bars,
+.navbar-toggler__icon.active .bars
+{
+    background-color: #fff;
+}
+
+.bars{
+    width: 30px;
+    height: 4px;
+    margin: 5px;
+    background: #282828;
+    border-radius: 3px;
+    transition: all .3s ease;
+}
+
+
+.navbar-profile{
+    width: 180px;
+    height: 50px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.navbar-profile img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+@media screen and (max-width: 768px) {
+    .navbar-profile{display: none;}
+
+    .navbar-toggler__icon{display: block;}
+
+    .navbar-collapse{
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-shadow: 0 1px 2px #3d3d3d;
+        overflow: hidden;
+        height: 100%;
+        width: 0%;
+        background: var(--gradient);
+        transition: all .2s linear;
+    }
+
+    .navbar-collapse.active{
+        width: 50%;
+        padding: 10%;
+    }
+
+    .navbar-collapse a{
+        display: inline-block;
+    }
+}
+
+/* end of navbar styling */
+
+
+/* button styling begins*/
+.glow-on-hover {
+    width: 130px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px black;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, #ee0979 0%, #ff2200  51%, #ee0979  100%);
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+/* button styling ends*/
+
+  
